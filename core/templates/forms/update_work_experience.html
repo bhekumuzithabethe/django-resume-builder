@@ -1,0 +1,14 @@
+{% extends "forms/form.html" %}
+
+
+{% block page_title %}Update Work Experience{% endblock page_title %}
+
+{% block title %}Update Work Experience{% endblock title %}
+
+{% block form_title %}Work Experience{% endblock form_title %}
+
+{% block form_url %}{% url "update_work_experience" work_experience.id %}{% endblock form_url %}
+
+{% block form_button %}Update{% endblock form_button %}
+
+{% block cancel_url %}{% url "index" %}{% endblock cancel_url %}

@@ -1,0 +1,30 @@
+
+<div class="offcanvas offcanvas-start bg-body-tertiary text-info" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExample">
+    
+
+    <div class="offcanvas-body">
+      
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'index' %}" class="text-decoration-none "><h1 class="m-3 text-muted">ISPANI</h1></a>
+            </div>
+            <hr class="mt-2">
+            <div class="col ms-4">
+                <ul class="list-unstyled ">
+                    <li class='mt-3'><a href="{% url "index" %}" class=' text-decoration-none'><i class="fa-solid fa-house fa-lg"></i> Home</a></li>
+                    <li class='my-4'><a href="{% url "personal-details" %}" class=' text-decoration-none'><i class="fa-solid fa-plus fa-lg"></i> Personal Details</a></li>
+                    <li class='my-4'><a href="{% url "education" %}" class='text-decoration-none '><i class="fa-solid fa-plus fa-lg"></i> Educational Background</a></li>
+                    <li class="my-4"><a href="{% url 'work-experience' %}" class='text-decoration-none '><i class="fa-solid fa-plus fa-lg"></i> Work Experience</a></li>
+                    <li class="my-4"><a href="{% url 'skill' %}" class='text-decoration-none '><i class="fa-solid fa-plus fa-lg"></i> Skills</a></li>
+                    <li class="my-4"><a href="{% url 'language' %}" class='text-decoration-none '><i class="fa-solid fa-plus fa-lg"></i> Languages</a></li>
+                    <li class="my-4"><a href="{% url 'reference' %}" class='text-decoration-none '><i class="fa-solid fa-plus fa-lg"></i> Reference</a></li>
+                    <li class="my-4"><a href="{% url 'summary' %}" class='text-decoration-none '><i class="fa-solid fa-plus fa-lg"></i> Sammary</a></li>
+                    <li class="my-4"><a href="{% url 'index' %}" class='text-decoration-none'><i class="fa-regular fa-file fa-lg"></i> View My Resume</a></li>                    
+                    <li class="my-4"><a href="{% url 'resume-view' %}" target="_blank" class='text-decoration-none '><i class="fa-regular fa-file-pdf fa-lg"></i> Download My Resume</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

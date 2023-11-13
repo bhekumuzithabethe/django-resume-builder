@@ -1,0 +1,16 @@
+{% extends "forms/form.html" %}
+
+{% block page_title %}Add Language{% endblock page_title %}
+
+{% block title %}Language{% endblock title %}
+
+{% block form_title %}Language{% endblock form_title %}
+
+{% block form_url %}{% url "language" %}{% endblock form_url %}
+
+
+{% block continue_url %}{% url 'reference' %}{% endblock continue_url %}
+
+{% block cancel_button %}Back{% endblock cancel_button %}
+
+{% block cancel_url %}{% url "skill" %}{% endblock cancel_url %}

@@ -1,0 +1,249 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block page_title %}My Resume{% endblock page_title %} 
+
+{% block main_content %}
+
+    <div class="container">
+        
+        <div class="row border-bottom m-2">
+            
+            <div class="col-9">
+                <h1>First Name: {{user.first_name}} <br> Last Name: {{user.last_name}}</h1>
+            </div>
+
+            <div class="col-3">
+                {% if personal_details.profile_pic %}
+                    <a href="{{personal_details.profile_pic.url}}" target="_blank"><img src="{{personal_details.profile_pic.url}}" height="100" ></a>
+                {% else %}
+                    <img src="{% static 'img/user.png' %}" height="100" >
+                {% endif %}
+            </div>
+
+        </div>
+        
+        
+            <div class="row m-2">
+                <div >
+                    <h1>Contact</h1>
+                    {% if personal_details %}
+                            <div class="row border-bottom ">
+                                
+                                <div class="col-12 m-2 d-flex">
+                                    <ul class="list-unstyled">
+                                    <li>Address: <strong>{{personal_details.city}},{{personal_details.postal_code}},{{personal_details.province}}</strong></li>
+                                    <li>Email: <strong>{{user.email}}</strong></li>
+                                    <li>Phone: <strong>{{personal_details.phone_number}}</strong></li>
+                                    </ul>
+                                    <div class="ms-auto me-3">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                <a href="{% url 'update_personal_details' personal_details.id %}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fa-lg"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'delete_personal_details' personal_details.id %}" class="btn btn-danger"><i class="fa-regular fa-trash-can fa-lg"></i></a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+
+                            </div>                
+                        
+                        {% else %}
+                        <div>
+                            <p class="my-5">No Personal Details</p>
+                        </div>
+                        {% endif %}
+                    </ol>
+                </div>
+
+                
+
+                <div>
+                    <h1>Education</h1>
+                    <ol>
+                        {% if educational_backgrounds %}
+                        {% for educational_background in educational_backgrounds  %}
+                            <li>
+                            <div class="row border-bottom">
+                                <div class="col-12 m-3 d-flex">
+                                    <ul class="list-unstyled">
+                                        <li>Last School Attended: <strong>{{educational_background.school_name}}</strong></li>
+                                        <li>School Address: <strong>{{educational_background.school_address}}</strong></li>
+                                        <li>Hightest Qualification: <strong>{{educational_background.qualification}}</strong></li>
+                                        <li>Field of Study: <strong>{{educational_background.field_of_study}}</strong></li>
+                                        <li>Year of Graduation: <strong>{{educational_background.year_of_graduation}}</strong></li>
+                                    </ul>
+                                    <div class="ms-auto me-3">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                <a href="{% url 'update_education' educational_background.id %}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fa-lg"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'delete_education' educational_background.id %}" class="btn btn-danger"><i class="fa-regular fa-trash-can fa-lg"></i></a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            </li>
+                        {% endfor %}
+                        {% else %}
+                        <div>
+                            <p class="my-5">No Educational Background Yet</p>
+
+                        </div>
+                        {% endif %}
+                    </ol>
+                </div>
+
+                <div>
+                    <h1>Work Experience</h1>
+                    <ol>
+                        {% if work_experiences %}
+                        {% for work_experience in work_experiences  %}
+                            <li>
+                            <div class="row">
+                                <div class="col-12 m-3 d-flex">
+                                    <ul class="list-unstyled">
+                                        <li>Job Title: <strong>{{work_experience.job_title}}</strong></li>
+                                        <li>Employer: <strong>{{work_experience.employer}}</strong></li>
+                                        <li>City: <strong>{{work_experience.city}}</strong></li>
+                                        <li>Province: <strong>{{work_experience.province}}</strong></li>
+                                        <li>Start Date: <strong>{{work_experience.start_date}}</strong></li>
+                                        {% if work_experience.currently_work_here == True %}
+                                        <li><strong>I'm currently working here.</strong></li>
+                                        {% elif work_experience.end_date == None %}
+
+                                        {% else %}
+                                        <li>End Date: <strong>{{work_experience.end_date}}</strong></li>
+                                        {% endif %}
+                                    
+                                    </ul>
+                                    <div class="ms-auto me-3">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                <a href="{% url 'update_work_experience' work_experience.id %}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fa-lg"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'delete_work_experience' work_experience.id %}" class="btn btn-danger"><i class="fa-regular fa-trash-can fa-lg"></i></a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            </li>
+                            
+                        
+                        {% endfor %}
+                        {% else %}
+                        <p class="my-5">No Work Experience Yet</p>
+                        {% endif %}
+                    </ol>
+                </div>
+                
+                <div>
+                    <h1>Skills</h1>
+                    <ol>
+                        {% if skills %}
+                        {% for skill in skills %}
+                            <li>
+                                <div class="row border-bottom">
+                                    <div class="col-12 m-3 d-flex">
+                                        <ul class="list-unstyled ">
+                                            <li><strong>{{skill.skill}}</li>
+                                        </ul>
+                                        <div class="ms-4">
+                                            <a href="{% url 'update_skill' skill.id %}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fa-lg"></i></a>
+                                            <a href="{% url 'delete_skill' skill.id %}" class="btn btn-danger"><i class="fa-regular fa-trash-can fa-lg"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        
+                        {% else %}
+                        <div>
+                            <p class="my-5">No Skills Yet</p>
+                        </div>
+                        {% endif %}
+
+                    </ol>
+                </div>
+
+
+                <div>
+                    <h1>References</h1>
+                    <ol>
+                        {% if references %}
+                            {% for reference in references  %}
+                                <li>
+                                    <div class="d-flex">
+                                        <ul class="list-unstyled">
+                                            <li>First Name:<strong>{{reference.first_name}}</strong></li>
+                                            <li>Last Name:<strong>{{reference.last_name}}</strong></li>
+                                            <li>Relationship:<strong>{{reference.relationship}}</strong></li>
+                                            <li>Company Name:<strong>{{reference.company}}</strong></li>
+                                            <li>Email:<strong>{{reference.email}}</strong></li>
+                                            <li>Cellphone:<strong>{{reference.cellphone_number}}</strong></li>
+
+                                        </ul>
+                                        <div class="ms-auto me-3">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2">
+                                                    <a href="{% url 'update_reference' reference.id %}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fa-lg"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'delete_reference' reference.id %}" class="btn btn-danger"><i class="fa-regular fa-trash-can fa-lg"></i></a>
+                                                </li>
+                                            </ul>
+                
+                                        </div>
+                                    </div>
+                                </li>
+                                <br>
+                                <br>
+                            {% endfor %}
+                        {% else %}
+                            <p class="my-5">No References</p>
+                        {% endif %}
+                    </ol>
+                </div>
+
+
+                    <div class="col-12 m-3">
+                        <div >
+                            <h1>Summary</h1>
+                            {% if summary %}
+                                <div class="d-flex">
+                                    <p>{{summary}}</p>
+                                    <div class="ms-auto me-3">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                <a href="{% url 'update_summary' summary.id %}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fa-lg"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'delete_summary' summary.id %}" class="btn btn-danger"><i class="fa-regular fa-trash-can fa-lg"></i></a>
+                                            </li>
+                                        </ul>
+            
+                                    </div>
+                                </div>
+                                
+                            {% else %}
+                                <p class="my-5">No Summary Yet</p>
+                            {% endif %}
+                        </div>
+                        
+                    </div>
+            </div>
+
+            
+    </div>
+
+{% endblock main_content %}

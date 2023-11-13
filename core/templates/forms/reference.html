@@ -1,0 +1,19 @@
+{% extends "forms/form.html" %}
+
+{% block page_title %}Add Reference{% endblock page_title %}
+
+{% block title %}Reference{% endblock title %}
+
+{% block form_title %}Reference{% endblock form_title %}
+
+{% block form_url %}{% url "reference" %}{% endblock form_url %}
+
+{% block another_button %}
+    <a href="{% url 'reference' %}" class="btn btn-primary">Add Another Reference</a>
+{% endblock another_button %}
+
+{% block continue_url %}{% url 'summary' %}{% endblock continue_url %}
+
+{% block cancel_button %}Back{% endblock cancel_button %}
+
+{% block cancel_url %}{% url "language" %}{% endblock cancel_url %}

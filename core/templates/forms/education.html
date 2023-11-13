@@ -1,0 +1,15 @@
+{% extends "forms/form.html" %}
+
+{% block page_title %}Add Educational Background{% endblock page_title %} 
+
+{% block title %}Educational Background{% endblock title %}
+
+{% block form_title %}Educational Background{% endblock form_title %}
+
+{% block form_url %}{% url "education" %}{% endblock form_url %}
+
+{% block continue_url %}{% url 'work-experience' %}{% endblock continue_url %}
+
+{% block cancel_button %}Back{% endblock cancel_button %}
+
+{% block cancel_url %}{% url "personal-details" %}{% endblock cancel_url %}

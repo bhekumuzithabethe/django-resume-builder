@@ -1,0 +1,17 @@
+{% extends "forms/form.html" %}
+
+{% block page_title %}Add Summary{% endblock page_title %}
+
+{% block title %}Summary{% endblock title %}
+
+{% block form_title %}Summary{% endblock form_title %}
+
+{% block form_url %}{% url "summary" %}{% endblock form_url %}
+
+
+{% block view_resume %}<a href="{% url 'resume-view' %}" target="_blank" class="btn btn-info">Continue</a>{% endblock view_resume %}
+
+
+{% block cancel_button %}Back{% endblock cancel_button %}
+
+{% block cancel_url %}{% url "reference" %}{% endblock cancel_url %}

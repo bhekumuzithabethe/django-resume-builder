@@ -1,0 +1,119 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ispani | My Resume</title>
+  </head>
+  <body>      
+    {% if personal_details %}
+      <div>
+        {% if personal_details.profile_pic %}
+          <img src="{{personal_details.profile_pic.path}}" height="100" >
+        {% else %}
+          <img src="static/img/user.png" height="100" >
+        {% endif %}
+        <h1>First Name: {{user.first_name}}  <br> Last Name: {{user.last_name}}</h1>
+      </div>
+    {% endif %} 
+
+    <div>
+      {% if personal_details %}
+        <h1>Contact</h1>
+        <ol>
+          <p>
+            Address: <strong>{{personal_details.city}},{{personal_details.postal_code}},{{personal_details.province}}</strong><br>
+            Email: <strong>{{user.email}}</strong><br>
+            Phone: <strong>{{personal_details.phone_number}}</strong><br>
+          </p>
+        </ol>
+      {% endif %}
+    </div>
+    
+    <div>
+      {% if educational_backgrounds %}
+        <h1>Education</h1>
+        <ol>  
+          {% for educational_background in educational_backgrounds  %}
+            <li><br>
+              Last School Attended: <strong>{{educational_background.school_name}}</strong><br>
+              School Address: <strong>{{educational_background.school_address}}</strong><br>
+              Hightest Qualification: <strong>{{educational_background.qualification}}</strong><br>
+              Field of Study: <strong>{{educational_background.field_of_study}}</strong><br>
+              Year of Graduation: <strong>{{educational_background.year_of_graduation}}</strong><br>
+            </li>
+          {% endfor %}
+        </ol>
+      {% endif %}
+    </div>
+
+    <div>
+      {% if work_experiences %}
+        <h1>Work Experience</h1>
+        <ol>
+          {% for work_experience in work_experiences  %}
+            <li><br>
+              Job Title: <strong>{{work_experience.job_title}}</strong><br>
+              Employer: <strong>{{work_experience.employer}}</strong><br>
+              City: <strong>{{work_experience.city}}</strong><br>
+              Province: <strong>{{work_experience.province}}</strong><br>
+              Start Date: <strong>{{work_experience.start_date}}</strong><br>
+              {% if work_experience.currently_work_here == True %}
+                <strong>I'm currently working here.</strong><br>
+              {% elif work_experience.end_date == None %}
+
+              {% else %}
+                End Date: <strong>{{work_experience.end_date}}</strong><br>
+              {% endif %}
+              <br>
+            </li>
+        {% endfor %}
+          </ol>
+      {% endif %}
+    </div>
+
+    <div>
+      {% if skills %}
+        <h1>Skills</h1>
+        <ol>
+          {% for skill in skills %}
+            <li>
+              <strong>{{skill.skill}}</strong><br>
+            </li>
+          {% endfor %}
+        </ol>
+      {% endif %}
+    </div>
+
+    <div>
+      {% if references %}
+        <h1>References</h1>
+        <ol>
+          {% for reference in references  %}
+            <li>
+                First Name:<strong>{{reference.first_name}}</strong><br>
+                Last Name:<strong>{{reference.last_name}}</strong><br>
+                Relationship:<strong>{{reference.relationship}}</strong><br>
+                Company Name:<strong>{{reference.company}}</strong><br>
+                Email:<strong>{{reference.email}}</strong><br>
+                Cellphone:<strong>{{reference.cellphone_number}}</strong><br>
+            </li>
+            <br>
+          {% endfor %}
+        </ol>
+      {% endif %}
+    </div>
+
+    <div>
+      {% if summary %}
+        <h1>Summary</h1>
+        <ol>
+          <p>{{summary}}</p>
+        </ol>
+      {% endif %}
+    </div>
+        
+
+  </body>
+</html>

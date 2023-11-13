@@ -1,0 +1,13 @@
+{% extends "forms/form.html" %}
+
+{% block page_title %}Add Personal Details{% endblock page_title %}
+
+{% block title %}Personal Details{% endblock title %}
+
+{% block form_title %}Personal Details{% endblock form_title %}
+
+{% block form_url %}{% url "personal-details" %}{% endblock form_url %}
+
+{% block continue_url %}{% url 'education' %}{% endblock continue_url %}
+
+{% block cancel_url %}{% url "index" %}{% endblock cancel_url %}

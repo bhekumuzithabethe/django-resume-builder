@@ -1,0 +1,13 @@
+{% extends "forms/form.html" %}
+
+{% block page_title %}Update Summary{% endblock page_title %}
+
+{% block title %}Update Summary{% endblock title %}
+
+{% block form_title %}Summary{% endblock form_title %}
+
+{% block form_url %}{% url "update_summary" summary.id %}{% endblock form_url %}
+
+{% block form_button %}Update{% endblock form_button %}
+
+{% block cancel_url %}{% url "index" %}{% endblock cancel_url %}

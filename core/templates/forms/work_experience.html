@@ -1,0 +1,16 @@
+{% extends "forms/form.html" %}
+
+
+{% block page_title %}Add Work Experience{% endblock page_title %}
+
+{% block title %}Work Experience{% endblock title %}
+
+{% block form_title %}Work Experience{% endblock form_title %}
+
+{% block form_url %}{% url "work-experience" %}{% endblock form_url %}
+
+{% block continue_url %}{% url 'skill' %}{% endblock continue_url %}
+
+{% block cancel_button %}Back{% endblock cancel_button %}
+
+{% block cancel_url %}{% url "education" %}{% endblock cancel_url %}
