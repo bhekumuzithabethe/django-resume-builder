@@ -15,6 +15,11 @@ This project uses Django v4.2.4. For Django to work, you must have a correct Pyt
 
 * Create a virtual environment.<br>
 From the root directory, run:
+>On macOS:
+```
+virtualenv venv
+```
+>On Windows:
 ```
 python -m venv venv
 ```
