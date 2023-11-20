@@ -3,7 +3,7 @@
 ## Overview
 Ispani is a resume builder project, whereby a user can create a resume, update resume details and download the resume they created. THis project only allowes registered users  to create resumes, therefore if you are not a registered user you won't be able to create a resume in the platform.
 The project is built using  Django 4, HTML 5, CSS 3, and Bootstrap 5 with a Bootswatch theme.
-
+![Home Page](https://github.com/bhekumuzithabethe/django-resume-builder/blob/main/core/static/img/homepage.png)
 ## Prerequisites
 
 1. [Python 3.8-3.12](https://www.python.org/)
